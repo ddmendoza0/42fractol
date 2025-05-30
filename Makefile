@@ -6,7 +6,7 @@
 #    By: dmendoza <dmendoza@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/19 13:10:58 by dmendoza          #+#    #+#              #
-#    Updated: 2025/05/25 17:25:32 by dmendoza         ###   ########.fr        #
+#    Updated: 2025/05/30 19:48:17 by dmendoza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ LIBS	=	$(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm $(LIBFT)/libft.a
 SRC_DIR =	src/
 SRCS	=	$(SRC_DIR)main.c $(SRC_DIR)init.c $(SRC_DIR)render.c \
 		$(SRC_DIR)mandelbrot.c $(SRC_DIR)julia.c $(SRC_DIR)events.c \
-		$(SRC_DIR)utils.c
+		$(SRC_DIR)utils.c $(SRC_DIR)actions.c
 
 OBJ_DIR =	obj/
 OBJS	=	$(SRCS:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)
@@ -44,9 +44,9 @@ $(LIBFT)/libft.a: FORCE
 	@$(MAKE) -C $(LIBFT)
 
 $(NAME):	$(OBJS)
-		@echo "Building fract-ol..."
+		@echo "Building fractol..."
 		@$(CC) $(OBJS) $(LIBS) -o $(NAME) 
-		@echo "...fract-ol built successfully."
+		@echo "...fractol built successfully."
 
 $(OBJ_DIR)%.o:	$(SRC_DIR)%.c $(INCLUDE)
 		@mkdir -p $(dir $@)

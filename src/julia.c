@@ -6,35 +6,40 @@
 /*   By: dmendoza <dmendoza@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 12:39:29 by dmendoza          #+#    #+#             */
-/*   Updated: 2025/05/25 15:39:13 by dmendoza         ###   ########.fr       */
+/*   Updated: 2025/05/30 19:23:12 by dmendoza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	draw_julia(t_fractal *fractal)
+static void	draw_julia_pixel(t_fractal *fractal, int x, int y)
 {
-	int			x;
-	int			y;
 	t_complex	z;
 	int			iterations;
 	int			color;
 	t_range		range_x;
 	t_range		range_y;
 
-	range_x = (t_range){0, WIDTH, fractal->min_r, fractal->max_r};
-	range_y = (t_range){0, HEIGHT, fractal->min_i, fractal->max_i};
+	setup_ranges(fractal, &range_x, &range_y);
+	z.r = map(x, range_x);
+	z.i = map(y, range_y);
+	iterations = julia(z, fractal->julia_c);
+	color = get_color(iterations, fractal->max_iter, fractal->color_shift);
+	pixel_put(fractal, x, y, color);
+}
+
+void	draw_julia(t_fractal *fractal)
+{
+	int			x;
+	int			y;
+
 	y = 0;
 	while (y < HEIGHT)
 	{
 		x = 0;
 		while (x < WIDTH)
 		{
-			z.r = map(x, range_x);
-			z.i = map(y, range_y);
-			iterations = julia(z, fractal->julia_c);
-			color = get_color(iterations, fractal->max_iter, fractal->color_shift);
-			pixel_put(fractal, x, y, color);
+			draw_julia_pixel(fractal, x, y);
 			x++;
 		}
 		y++;

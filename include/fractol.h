@@ -6,7 +6,7 @@
 /*   By: dmendoza <dmendoza@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 12:19:42 by dmendoza          #+#    #+#             */
-/*   Updated: 2025/05/25 17:31:54 by dmendoza         ###   ########.fr       */
+/*   Updated: 2025/05/30 19:59:08 by dmendoza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,10 +78,14 @@ void	draw_julia(t_fractal *fractal);
 double	map(double u_num, t_range range);
 int		get_color(int iterations, int max_iter, int color_shift);
 void	pixel_put(t_fractal *fractal, int x, int y, int color);
+void	setup_ranges(t_fractal *fractal, t_range *r_x, t_range *r_y);
 
 /* events.c */
 void	key_press(mlx_key_data_t key, void *param);
 void	mouse_scroll(double xdelta, double ydelta, void *param);
+
+/* actions.c */
+void	move_fractal(t_fractal *fractal, double delta_r, double delta_i);
 void	close_window(void *param);
 
 /* render.c */

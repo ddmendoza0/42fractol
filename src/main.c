@@ -6,7 +6,7 @@
 /*   By: dmendoza <dmendoza@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 12:14:10 by dmendoza          #+#    #+#             */
-/*   Updated: 2025/05/25 17:40:25 by dmendoza         ###   ########.fr       */
+/*   Updated: 2025/05/30 18:05:10 by dmendoza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,12 @@
 
 void	error_exit(char *msg)
 {
-	write(2, "Error: ", 7);
-	write(2, msg, ft_strlen(msg));
-	write(2, "\n", 1);
+	if (write(2, "Error: ", 7) < 0)
+		exit(1);
+	if (write(2, msg, ft_strlen(msg)) < 0)
+		exit(1);
+	if (write(2, "\n", 1) < 0)
+		exit(1);
 	exit(EXIT_FAILURE);
 }
 
