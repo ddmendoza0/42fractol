@@ -6,7 +6,7 @@
 /*   By: dmendoza <dmendoza@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 12:19:42 by dmendoza          #+#    #+#             */
-/*   Updated: 2025/05/30 19:59:08 by dmendoza         ###   ########.fr       */
+/*   Updated: 2025/05/30 20:29:39 by dmendoza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ typedef struct s_fractal
 /* main.c */
 int		main(int argc, char **argv);
 void	error_exit(char *msg);
-void	print_usage(void);
+//void	print_usage(void);
 
 /* init.c */
 void	init_fractal(t_fractal *fractal, int type);

@@ -6,7 +6,7 @@
 /*   By: dmendoza <dmendoza@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 12:34:09 by dmendoza          #+#    #+#             */
-/*   Updated: 2025/05/25 16:57:07 by dmendoza         ###   ########.fr       */
+/*   Updated: 2025/05/30 20:11:38 by dmendoza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,14 @@ void	init_mlx(t_fractal *fractal)
 		error_exit("Failed to initialize MLX");
 	fractal->img = mlx_new_image(fractal->mlx, WIDTH, HEIGHT);
 	if (!fractal->img)
+	{
+		mlx_terminate(fractal->mlx);
 		error_exit("Failed to create image");
+	}
+	if (mlx_image_to_window(fractal->mlx, fractal->img, 0, 0) < 0)
+	{
+		mlx_delete_image(fractal->mlx, fractal->img);
+		mlx_terminate(fractal->mlx);
+		error_exit("Failed to display image");
+	}
 }
