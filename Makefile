@@ -6,7 +6,7 @@
 #    By: dmendoza <dmendoza@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/19 13:10:58 by dmendoza          #+#    #+#              #
-#    Updated: 2025/05/30 19:48:17 by dmendoza         ###   ########.fr        #
+#    Updated: 2025/06/06 18:57:14 by dmendoza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ HEADERS	=	-I ./include -I $(LIBMLX)/include -I$(LIBFT)
 
 LIBMLX	=	./lib/MLX42
 LIBFT	=	./lib/libft
-LIBS	=	$(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm $(LIBFT)/libft.a
+LIBS	=	$(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm  $(LIBFT)/libft.a
 
 SRC_DIR =	src/
 SRCS	=	$(SRC_DIR)main.c $(SRC_DIR)init.c $(SRC_DIR)render.c \

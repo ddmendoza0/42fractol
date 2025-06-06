@@ -6,7 +6,7 @@
 /*   By: dmendoza <dmendoza@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 12:19:42 by dmendoza          #+#    #+#             */
-/*   Updated: 2025/05/30 20:29:39 by dmendoza         ###   ########.fr       */
+/*   Updated: 2025/06/06 18:12:03 by dmendoza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 
 # define WIDTH 800
 # define HEIGHT 600
-# define MAX_ITERATIONS 100
+# define MAX_ITERATIONS 200
 
 # define MANDELBROT 1
 # define JULIA 2
@@ -50,7 +50,6 @@ typedef struct s_fractal
 	double		max_r;
 	double		min_i;
 	double		max_i;
-	double		zoom;
 	t_complex	julia_c;
 	int			max_iter;
 	int			color_shift;
@@ -59,7 +58,6 @@ typedef struct s_fractal
 /* main.c */
 int		main(int argc, char **argv);
 void	error_exit(char *msg);
-//void	print_usage(void);
 
 /* init.c */
 void	init_fractal(t_fractal *fractal, int type);

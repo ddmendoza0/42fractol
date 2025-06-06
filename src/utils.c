@@ -6,7 +6,7 @@
 /*   By: dmendoza <dmendoza@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 12:40:59 by dmendoza          #+#    #+#             */
-/*   Updated: 2025/05/30 19:17:39 by dmendoza         ###   ########.fr       */
+/*   Updated: 2025/06/06 18:26:46 by dmendoza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ double	map(double u_num, t_range range)
 			/ (range.old_max - range.old_min) + range.new_min);
 }
 
-/*int	get_color(int iterations, int max_iter, int color_shift)
+int	get_color(int iterations, int max_iter, int color_shift)
 {
 	int		r;
 	int		g;
@@ -41,30 +41,11 @@ double	map(double u_num, t_range range)
 	g = (g + color_shift) % 256;
 	b = (b + color_shift) % 256;
 	return ((r << 16) | (g << 8) | b);
-}*/
-int	get_color(int iterations, int max_iter, int color_shift)
-{
-	int		r;
-	int		g;
-	int		b;
-	double	t;
-
-	if (iterations == max_iter)
-		return (0x000000);
-	t = (double)iterations / max_iter;
-	r = (int)(255 * t);
-	g = (int)(255 * t * 0.7);
-	b = (int)(255 * t * 0.4);
-	r = (r + color_shift) % 256;
-	g = (g + color_shift / 2) % 256;
-	b = (b + color_shift / 4) % 256;
-	return ((r << 16) | (g << 8) | b);
 }
 
 void	pixel_put(t_fractal *fractal, int x, int y, int color)
 {
-	if (x >= 0 && x < (int)fractal->img->width && y >= 0
-		&& y < (int)fractal->img->height)
+	if (x >= 0 && x < WIDTH && y >= 0 && y < HEIGHT)
 		mlx_put_pixel(fractal->img, x, y, color);
 }
 

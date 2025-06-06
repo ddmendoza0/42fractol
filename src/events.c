@@ -6,7 +6,7 @@
 /*   By: dmendoza <dmendoza@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 12:51:46 by dmendoza          #+#    #+#             */
-/*   Updated: 2025/05/30 19:52:47 by dmendoza         ###   ########.fr       */
+/*   Updated: 2025/06/06 18:00:48 by dmendoza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,27 +26,26 @@ static void	handler(t_fractal *fractal, int option)
 	}
 }
 
-static void	handle_movement(t_fractal *fractal, mlx_key_data_t key, \
-		double move_speed)
+static void	handle_mv(t_fractal *fractal, mlx_key_data_t key, double mv_sp)
 {
 	if (key.key == MLX_KEY_LEFT)
 	{
-		move_fractal(fractal, -move_speed, 0);
+		move_fractal(fractal, -mv_sp, 0);
 		render_fractal(fractal);
 	}
 	else if (key.key == MLX_KEY_RIGHT)
 	{
-		move_fractal(fractal, move_speed, 0);
+		move_fractal(fractal, mv_sp, 0);
 		render_fractal(fractal);
 	}
 	else if (key.key == MLX_KEY_UP)
 	{
-		move_fractal(fractal, 0, -move_speed);
+		move_fractal(fractal, 0, -mv_sp);
 		render_fractal(fractal);
 	}
 	else if (key.key == MLX_KEY_DOWN)
 	{
-		move_fractal(fractal, 0, move_speed);
+		move_fractal(fractal, 0, mv_sp);
 		render_fractal(fractal);
 	}
 }
@@ -67,7 +66,7 @@ void	key_press(mlx_key_data_t key, void *param)
 		else if (key.key == MLX_KEY_R)
 			handler(fractal, 2);
 		else
-			handle_movement(fractal, key, move_speed);
+			handle_mv(fractal, key, move_speed);
 	}
 }
 

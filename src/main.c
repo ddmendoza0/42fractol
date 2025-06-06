@@ -6,7 +6,7 @@
 /*   By: dmendoza <dmendoza@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 12:14:10 by dmendoza          #+#    #+#             */
-/*   Updated: 2025/05/30 20:27:53 by dmendoza         ###   ########.fr       */
+/*   Updated: 2025/06/06 19:02:25 by dmendoza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,12 @@ int	main(int argc, char **argv)
 {
 	t_fractal	*fractal;
 
-	fractal = allocate_fractal();
 	if (argc < 2)
 	{
 		print_usage();
 		return (1);
 	}
+	fractal = allocate_fractal();
 	if (ft_strncmp(argv[1], "mandelbrot", 10) == 0 && argc == 2)
 	{
 		init_fractal(fractal, MANDELBROT);
@@ -74,7 +74,7 @@ int	main(int argc, char **argv)
 	else if (ft_strncmp(argv[1], "julia", 5) == 0 && argc == 4)
 	{
 		init_fractal(fractal, JULIA);
-		init_julia(fractal, atof(argv[2]), atof(argv[3]));
+		init_julia(fractal, ft_atof(argv[2]), ft_atof(argv[3]));
 	}
 	else
 	{

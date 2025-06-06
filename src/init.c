@@ -6,7 +6,7 @@
 /*   By: dmendoza <dmendoza@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 12:34:09 by dmendoza          #+#    #+#             */
-/*   Updated: 2025/05/30 20:11:38 by dmendoza         ###   ########.fr       */
+/*   Updated: 2025/06/06 18:08:21 by dmendoza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	init_fractal(t_fractal *fractal, int type)
 	fractal->max_r = 1.5;
 	fractal->min_i = -1.5;
 	fractal->max_i = 1.5;
-	fractal->zoom = 1.0;
 	fractal->max_iter = MAX_ITERATIONS;
 	fractal->color_shift = 0;
 }
