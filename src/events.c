@@ -6,7 +6,7 @@
 /*   By: dmendoza <dmendoza@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 12:51:46 by dmendoza          #+#    #+#             */
-/*   Updated: 2025/06/06 18:00:48 by dmendoza         ###   ########.fr       */
+/*   Updated: 2025/06/06 19:12:32 by dmendoza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,12 +100,12 @@ void	mouse_scroll(double xdelta, double ydelta, void *param)
 	mlx_get_mouse_pos(fractal->mlx, &x, &y);
 	if (ydelta > 0)
 	{
-		zoom_fractal(fractal, x, y, 0.9);
+		zoom_fractal(fractal, x, y, 0.8);
 		render_fractal(fractal);
 	}
 	else if (ydelta < 0)
 	{
-		zoom_fractal(fractal, x, y, 1.1);
+		zoom_fractal(fractal, x, y, 1.2);
 		render_fractal(fractal);
 	}
 }

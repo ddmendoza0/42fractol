@@ -6,7 +6,7 @@
 /*   By: dmendoza <dmendoza@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 12:14:10 by dmendoza          #+#    #+#             */
-/*   Updated: 2025/06/06 19:02:25 by dmendoza         ###   ########.fr       */
+/*   Updated: 2025/06/06 19:07:07 by dmendoza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ static int	init_visual(t_fractal *fractal)
 	mlx_close_hook(fractal->mlx, close_window, fractal);
 	mlx_loop(fractal->mlx);
 	mlx_terminate(fractal->mlx);
+	free(fractal);
 	return (0);
 }
 
@@ -79,9 +80,9 @@ int	main(int argc, char **argv)
 	else
 	{
 		print_usage();
+		free(fractal);
 		return (1);
 	}
 	init_visual(fractal);
-	free(fractal);
 	return (0);
 }
