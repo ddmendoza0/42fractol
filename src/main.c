@@ -6,7 +6,7 @@
 /*   By: dmendoza <dmendoza@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 12:14:10 by dmendoza          #+#    #+#             */
-/*   Updated: 2025/06/06 19:07:07 by dmendoza         ###   ########.fr       */
+/*   Updated: 2025/06/08 14:01:06 by dmendoza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,11 +68,11 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	fractal = allocate_fractal();
-	if (ft_strncmp(argv[1], "mandelbrot", 10) == 0 && argc == 2)
+	if (ft_strncmp(argv[1], "mandelbrot", ft_strlen(argv[1])) == 0 && argc == 2)
 	{
 		init_fractal(fractal, MANDELBROT);
 	}
-	else if (ft_strncmp(argv[1], "julia", 5) == 0 && argc == 4)
+	else if (ft_strncmp(argv[1], "julia", ft_strlen(argv[1])) == 0 && argc == 4)
 	{
 		init_fractal(fractal, JULIA);
 		init_julia(fractal, ft_atof(argv[2]), ft_atof(argv[3]));
